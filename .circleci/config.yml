@@ -3,8 +3,8 @@ version: 2.1
 jobs:
   build:
     machine:
-      image: ubuntu-1604-cuda-10.2:201909-23
+      image: ubuntu-1604-cuda-11.6:201909-23
     resource_class: gpu.nvidia.large
     steps:
       - run: nvidia-smi
-      - run: docker run --gpus all nvidia/cuda:10.2-base nvidia-smi
+      - run: docker run --gpus all nvidia/cuda:11.6-base nvidia-smi
