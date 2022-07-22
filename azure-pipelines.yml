@@ -1,0 +1,15 @@
+- job: buildSharedNpm_linux
+  displayName: Build shared npm packages (Linux)
+  condition: and(succeeded(), not(variables.task), eq(variables.os, 'Linux'))
+  pool:
+    vmImage: ubuntu-18.04
+  steps:
+  - template: ci/build-common-npm.yml
+
+- job: buildSharedNpm_darwin
+  displayName: Build shared npm packages (macOS)
+  condition: and(succeeded(), not(variables.task), eq(variables.os, 'Darwin'))
+  pool:
+    vmImage: macos-10.15
+  steps:
+  - template: ci/build-common-npm.yml
